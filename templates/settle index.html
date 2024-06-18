@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Settle In</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">
+        <img src="C:/Users/HP/PycharmProjects/SettleIn/venv/logo.jpeg">
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Settle In</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Looking for where to settle? We're here to help!<br></h5>
+      </div>
+
+      <form action='/process_data' method="POST" onsubmit="return validateForm();">
+          <!-- Layer 1: User's First Name -->
+          <div class="row">
+            <div class="input-field col s12">
+
+              <input id="first_name" name='first_name' type="text" class="validate" placeholder="Kindly enter your name">
+            </div>
+          </div>
+
+          <!-- Layer 2: Ethnicity Selection -->
+          <div class="row" style="display:flex;gap:2rem">
+            <div class="row" style="width:55%">
+              <div class="input-field col s12" style="margin-top:0">
+                <div>What's your ethnicity?</div>
+
+                <!-- List of ethnic groups with radios -->
+
+                  <!-- First Column -->
+                  <div class="col s12" style="display:flex; flex-wrap:wrap; margin-top: 1.5rem">
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="White British"/>
+                      <span>White British</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Other White"/>
+                      <span>Other White</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="White Irish"/>
+                      <span>White Irish</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Black African"/>
+                      <span>Black African</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Black Caribbean"/>
+                      <span>Black Caribbean</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Other Black"/>
+                      <span>Other Black</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Pakistani"/>
+                      <span>Pakistani</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Chinese"/>
+                      <span>Chinese</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Indian"/>
+                      <span>Indian</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Bangladeshi"/>
+                      <span>Bangladeshi</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Other Asian"/>
+                      <span>Other Asian</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Arab"/>
+                      <span>Arab</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Mixed White and Asian"/>
+                      <span>Mixed White and Asian</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Mixed White and Black Caribbean"/>
+                      <span>Mixed White and Black Caribbean</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Mixed White and Black African"/>
+                      <span>Mixed White and Black African</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Other Mixed"/>
+                      <span>Other Mixed</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Other Ethnic Group"/>
+                      <span>Other Ethnic Group</span>
+                    </label>
+                  </div>
+
+
+              </div>
+            </div>
+
+            <!-- Layer 3: Qualities Selection -->
+            <div class="row" style="width:45%">
+              <div>4 Qualities of your new Community in order of Priority</div>
+
+              <!-- Priority 1 Dropdown -->
+              <div class="input-field col s12">
+                <div for="priority1">Priority 1</div>
+                <select id="priority1" class="qualities-dropdown" name="priority1">
+                  <option value="" disabled selected>Select an option</option>
+                  <option value="High Ethnic Population">High Ethnic Population</option>
+                  <option value="Low Crime Rate">Low Crime Rate</option>
+                  <option value="Low Unemployment Rate">Low Unemployment Rate</option>
+                  <option value="Low Average Cost of Living">Low Average Cost of Living</option>
+                  <option value="Low Average Rent">Low Average Rent</option>
+                  <option value="High IMD Score">High IMD Score</option>
+                </select>
+              </div>
+
+              <!-- Priority 2 Dropdown -->
+              <div class="input-field col s12">
+                <div for="priority2">Priority 2</div>
+                <select id="priority2" class="qualities-dropdown"  name="priority2" disabled>
+                  <option value="" disabled selected>Select an option</option>
+                  <option value="High Ethnic Population">High Ethnic Population</option>
+                  <option value="Low Crime Rate">Low Crime Rate</option>
+                  <option value="Low Unemployment Rate">Low Unemployment Rate</option>
+                  <option value="Low Average Cost of Living">Low Average Cost of Living</option>
+                  <option value="Low Average Rent">Low Average Rent</option>
+                  <option value="High IMD Score">High IMD Score</option>
+                </select>
+              </div>
+
+              <!-- Priority 3 Dropdown -->
+              <div class="input-field col s12">
+                <div for="priority3">Priority 3</div>
+                <select id="priority3" class="qualities-dropdown"  name="priority3" disabled>
+                  <option value="" disabled selected>Select an option</option>
+                  <option value="High Ethnic Population">High Ethnic Population</option>
+                  <option value="Low Crime Rate">Low Crime Rate</option>
+                  <option value="Low Unemployment Rate">Low Unemployment Rate</option>
+                  <option value="Low Average Cost of Living">Low Average Cost of Living</option>
+                  <option value="Low Average Rent">Low Average Rent</option>
+                  <option value="High IMD Score">High IMD Score</option>
+                </select>
+              </div>
+
+              <!-- Priority 4 Dropdown -->
+              <div class="input-field col s12">
+                <div for="priority4">Priority 4</div>
+                <select id="priority4" class="qualities-dropdown"  name="priority4" disabled>
+                  <option value="" disabled selected>Select an option</option>
+                  <option value="High Ethnic Population">High Ethnic Population</option>
+                  <option value="Low Crime Rate">Low Crime Rate</option>
+                  <option value="Low Unemployment Rate">Low Unemployment Rate</option>
+                  <option value="Low Average Cost of Living">Low Average Cost of Living</option>
+                  <option value="Low Average Rent">Low Average Rent</option>
+                  <option value="High IMD Score">High IMD Score</option>
+                </select>
+              </div>
+            </div>
+
+            <script>
+              // JavaScript to update dropdowns based on selected options
+              const dropdowns = document.querySelectorAll('.qualities-dropdown');
+
+              dropdowns.forEach((dropdown, index) => {
+                dropdown.addEventListener('change', () => {
+                  // Remove selected option from other dropdowns
+                  dropdowns.forEach((otherDropdown, otherIndex) => {
+                    if (otherIndex !== index) {
+                      const selectedOption = dropdown.value;
+                      const optionToRemove = Array.from(otherDropdown.options).find(option => option.value === selectedOption);
+                      if (optionToRemove) {
+                        otherDropdown.remove(optionToRemove.index);
+                      }
+                    }
+                  });
+
+                  // Enable the next dropdown if a selection is made
+                  if (dropdown.value !== '') {
+                    const nextDropdown = dropdowns[index + 1];
+                    if (nextDropdown) {
+                      nextDropdown.disabled = false;
+                    }
+                  }
+
+                  // Trigger the event to update dropdowns in Layer 4
+                  const updateEvent = new Event('updateDropdownsLayer4');
+                  document.dispatchEvent(updateEvent);
+                });
+              });
+            </script>
+        </div>
+          <!-- Submit Button-->
+          <div class="row center">
+            <button type="submit" class="btn-large waves-effect waves-light orange" id="submitButton">See the Best Fit!</button>
+          </div><br><br>
+
+          <!-- Recommendations Section -->
+          <div>
+              <!-- Display the priorities table -->
+              <h2>Priority Choices</h2>
+              <p>{{ greeting | safe }}</p>
+
+              <!-- Display the recommendations table -->
+              <h2>Recommendations</h2>
+              <p>{{ recommendations | safe }}</p>
+          </div>
+
+    </div>
+  </div>
+
+  <!-- Add these elements for error messages -->
+  <div id="nameError" class="red-text"></div>
+  <div id="ethnicityError" class="red-text"></div>
+  <div id="qualitiesError" class="red-text"></div>
+
+    <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l12 s6">
+          <h6 class="white-text">About the Project</h6>
+          <p class="grey-text text-lighten-4">SettleIn modernizes immigrant transition experiences by making neighborhood selection effortless. My interactive query generator elicits user priorities then maps these to best-fit locations utilizing inventive machine learning methodology</p>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="./js/materialize.js"></script>
+  <script src="./js/init.js"></script>
+
+<script>
+  function validateForm() {
+    console.log('validateForm function called');
+
+    // Reset error messages
+    document.getElementById('nameError').innerHTML = '';
+    document.getElementById('ethnicityError').innerHTML = '';
+    document.getElementById('qualitiesError').innerHTML = '';
+
+    // Layer 1 validation (Name)
+    const firstName = document.getElementById('first_name').value;
+    if (firstName.trim() === '') {
+      document.getElementById('nameError').innerHTML = 'Please enter your name.';
+      return false; // Stop form submission
+    }
+
+    // Layer 2 validation (Ethnicity)
+    const selectedEthnicity = document.querySelector('input[name="ethnicity"]:checked');
+    if (!selectedEthnicity) {
+      document.getElementById('ethnicityError').innerHTML = 'Please select your ethnicity.';
+      return false; // Stop form submission
+    }
+
+    // Layer 3 validation (Qualities)
+    const selectedQualities = document.querySelectorAll('.qualities-dropdown option:checked');
+    if (selectedQualities.length !== 4) {
+      document.getElementById('qualitiesError').innerHTML = 'Please select exactly 4 qualities.';
+      return false; // Stop form submission
+    }
+
+    // Continue with form submission
+    return true;
+  }
+</script>
+</body>
+</html>

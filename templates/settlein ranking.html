@@ -1,0 +1,104 @@
+<!-- Layer 4: Ranking Page (rankings.html) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Settlement Helper</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+
+      <h3 class="header center orange-text">Settlement Helper</h3>
+      <div class="row center">
+        <h7 class="header col s12 light">Looking for where to settle? We're here to help!<br></h7>
+      </div>
+
+      <!-- Layer 4: Ranking Page (rankings.html) -->
+
+      <form id="rankingForm" action="/process_rankings" method="POST">
+
+        <h3>Please rank the following priorities:</h3>
+
+        <!-- Container to dynamically add qualities dropdowns -->
+        <div id="qualitiesContainer"></div>
+
+        <button type="submit">Get Recommendations</button>
+
+        <script>
+          // Ensure the script runs after the HTML content is fully loaded
+          document.addEventListener("DOMContentLoaded", function () {
+            // JavaScript to dynamically insert qualities dropdowns
+            const checkboxes = document.querySelectorAll('.qualities-checkbox');
+            const qualitiesContainer = document.getElementById('qualitiesContainer');
+
+            // Event listener to update dropdowns when checkboxes change
+            checkboxes.forEach(checkbox => {
+              checkbox.addEventListener('change', updateDropdowns);
+            });
+
+            // Initial update of dropdowns based on current checkbox state
+            updateDropdowns();
+
+            function updateDropdowns() {
+              // Clear existing dropdowns
+              qualitiesContainer.innerHTML = '';
+
+              // Get selected checkboxes
+              const selectedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+
+              // Dynamically create dropdowns for selected qualities
+              selectedCheckboxes.forEach((checkbox, index) => {
+                const dropdownDiv = document.createElement('div');
+                dropdownDiv.innerHTML = `<label>${checkbox.value}: </label>
+                  <select name="quality${index + 1}">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>`;
+                qualitiesContainer.appendChild(dropdownDiv);
+              });
+            }
+
+            // Reorder dropdowns based on user ranking (similar to the previous script)
+            const form = document.getElementById('rankingForm');
+            form.addEventListener('submit', function(event) {
+              event.preventDefault();
+              const formData = new FormData(form);
+              const priorities = [];
+              for (let i = 1; i <= checkboxes.length; i++) {
+                priorities.push(formData.get(`quality${i}`));
+              }
+              // Priorities array now holds user rankings for each quality
+              console.log('User priorities:', priorities);
+              // Submit the form or process the priorities as needed
+              // form.submit();
+            });
+          });
+        </script>
+
+      </form>
+</body>
+</html>

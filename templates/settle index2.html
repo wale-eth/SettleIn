@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Settlement Helper</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Settlement Helper</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Looking for where to settle? We're here to help!<br></h5>
+      </div>
+
+      <form action='/process_data' method="POST" onsubmit="return validateForm();">
+          <!-- Layer 1: User's First Name -->
+          <div class="row">
+            <div class="input-field col s12">
+              <label for="first_name">Kindly enter your name</label>
+              <input id="first_name" name='first_name' type="text" class="validate">
+            </div>
+          </div>
+
+          <!-- Layer 2: Ethnicity Selection -->
+          <div class="row" style="display:flex;gap:2rem">
+            <div class="row" style="width:55%">
+              <div class="input-field col s12" style="margin-top:0">
+                <div>Where are you from/ethnicity?</div>
+
+                <!-- List of ethnic groups with radios -->
+
+                  <!-- First Column -->
+                  <div class="col s12" style="display:flex; flex-wrap:wrap; margin-top: 1.5rem">
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="White British"/>
+                      <span>White British</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Other White"/>
+                      <span>Other White</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="White Irish"/>
+                      <span>White Irish</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Black African"/>
+                      <span>Black African</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Black Caribbean"/>
+                      <span>Black Caribbean</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Other Black"/>
+                      <span>Other Black</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Pakistani"/>
+                      <span>Pakistani</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Chinese"/>
+                      <span>Chinese</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Indian"/>
+                      <span>Indian</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Bangladeshi"/>
+                      <span>Bangladeshi</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Other Asian"/>
+                      <span>Other Asian</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Arab"/>
+                      <span>Arab</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Mixed White and Asian"/>
+                      <span>Mixed White and Asian</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Mixed White and Black Caribbean"/>
+                      <span>Mixed White and Black Caribbean</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Mixed White and Black African"/>
+                      <span>Mixed White and Black African</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Other Mixed"/>
+                      <span>Other Mixed</span>
+                    </label>
+                    <label style="width:50%">
+                      <input type="radio" name="ethnicity" value="Other Ethnic Group"/>
+                      <span>Other Ethnic Group</span>
+                    </label>
+                  </div>
+
+
+              </div>
+            </div>
+
+            <!-- Layer 3: Qualities Selection -->
+            <div class="row" style="width:45%">
+              <div>Select 4 Non-Negotiable Qualities of your new Community</div>
+              <div class="input-field col s12">
+                <label>
+                  <input type="checkbox" name="qualities" value="High Ethnic Population" class="qualities-checkbox"/>
+                  <span>High Ethnic Population</span>
+                </label>
+              </div>
+              <div class="input-field col s12">
+                <label>
+                  <input type="checkbox" name="qualities" value="Low Crime Rate" class="qualities-checkbox"/>
+                  <span>Low Crime Rate</span>
+                </label>
+              </div>
+              <div class="input-field col s12">
+                <label>
+                  <input type="checkbox" name="qualities" value="Low Unemployment Rate" class="qualities-checkbox"/>
+                  <span>Low Unemployment Rate</span>
+                </label>
+              </div>
+              <div class="input-field col s12">
+                <label>
+                  <input type="checkbox" name="qualities" value="Low Average Cost of Living" class="qualities-checkbox"/>
+                  <span>Low Average Cost of Living</span>
+                </label>
+              </div>
+              <div class="input-field col s12">
+                <label>
+                  <input type="checkbox" name="qualities" value="Low Average Rent" class="qualities-checkbox"/>
+                  <span>Low Average Rent</span>
+                </label>
+              </div>
+              <div class="input-field col s12">
+                <label>
+                  <input type="checkbox" name="qualities" value="Low IMD Score" class="qualities-checkbox"/>
+                  <span>Low IMD Score</span>
+                </label>
+              </div>
+            </div>
+
+
+
+          </div>
+
+          <script>
+            // JavaScript to limit the number of checkboxes that can be selected
+            const checkboxes = document.querySelectorAll('.qualities-checkbox');
+            let selectedCount = 0;
+
+            checkboxes.forEach(checkbox => {
+              checkbox.addEventListener('change', () => {
+                if (checkbox.checked) {
+                  selectedCount++;
+                } else {
+                  selectedCount--;
+                }
+
+                if (selectedCount > 4) {
+                  checkbox.checked = false;
+                  selectedCount--;
+                }
+
+                // Trigger the event to update dropdowns in Layer 4
+                const updateEvent = new Event('updateDropdownsLayer4');
+                document.dispatchEvent(updateEvent);
+              });
+            });
+          </script>
+        </div>
+          <!-- Submit Button-->
+          <div class="row center">
+            <button type="submit" class="btn-large waves-effect waves-light orange" id="submitButton">Submit Selections</button>
+          </div><br><br>
+
+    </div>
+  </div>
+
+  <!-- Add these elements for error messages -->
+  <div id="nameError" class="red-text"></div>
+  <div id="ethnicityError" class="red-text"></div>
+  <div id="qualitiesError" class="red-text"></div>
+
+  <!-- Layer 4: Ranking Page (rankings.html) -->
+
+  <form id="rankingForm" action="/process_rankings" method="POST">
+      <h3>Please rank the following priorities:</h3>
+        <!-- Container to dynamically add qualities dropdowns -->
+        <div id="qualitiesContainer"></div>
+        <button type="submit">Get Recommendations</button>
+
+        <script>
+          // Ensure the script runs after the HTML content is fully loaded
+          document.addEventListener("DOMContentLoaded", function () {
+            // JavaScript to dynamically insert qualities dropdowns
+            const checkboxes = document.querySelectorAll('.qualities-checkbox');
+            const qualitiesContainer = document.getElementById('qualitiesContainer');
+
+            // Event listener to update dropdowns when checkboxes change
+            checkboxes.forEach(checkbox => {
+              checkbox.addEventListener('change', updateDropdowns);
+            });
+
+            // Initial update of dropdowns based on current checkbox state
+            updateDropdowns();
+
+            function updateDropdowns() {
+              // Clear existing dropdowns
+              qualitiesContainer.innerHTML = '';
+
+              // Get selected checkboxes
+              const selectedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+
+              // Dynamically create dropdowns for selected qualities
+              selectedCheckboxes.forEach((checkbox, index) => {
+                const dropdownDiv = document.createElement('div');
+                dropdownDiv.innerHTML = `<label>${checkbox.value}: </label>
+                  <select name="quality${index + 1}">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>`;
+                qualitiesContainer.appendChild(dropdownDiv);
+              });
+            }
+
+            // Reorder dropdowns based on user ranking (similar to the previous script)
+            const form = document.getElementById('rankingForm');
+            form.addEventListener('submit', function(event) {
+              event.preventDefault();
+              const formData = new FormData(form);
+              const priorities = [];
+              for (let i = 1; i <= checkboxes.length; i++) {
+                priorities.push(formData.get(`quality${i}`));
+              }
+              // Priorities array now holds user rankings for each quality
+              console.log('User priorities:', priorities);
+              // Submit the form or process the priorities as needed
+              // form.submit();
+            });
+          });
+        </script>
+
+      </form>
+
+    <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l12 s6">
+          <h6 class="white-text">About the Project</h6>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="./js/materialize.js"></script>
+  <script src="./js/init.js"></script>
+
+  <script>
+    function validateForm() {
+      console.log('validateForm function called');
+
+      // Reset error messages
+      document.getElementById('nameError').innerHTML = '';
+      document.getElementById('ethnicityError').innerHTML = '';
+      document.getElementById('qualitiesError').innerHTML = '';
+
+      // Layer 1 validation (Name)
+      const firstName = document.getElementById('first_name').value;
+      if (firstName.trim() === '') {
+        document.getElementById('nameError').innerHTML = 'Please enter your name.';
+        return false; // Stop form submission
+      }
+
+      // Layer 2 validation (Ethnicity)
+      const selectedEthnicity = document.querySelector('input[name="ethnicity"]:checked');
+      if (!selectedEthnicity) {
+        document.getElementById('ethnicityError').innerHTML = 'Please select your ethnicity.';
+        return false; // Stop form submission
+      }
+
+      // Layer 3 validation (Qualities)
+      const selectedQualities = document.querySelectorAll('input[name="qualities"]:checked');
+      if (selectedQualities.length !== 4) {
+        document.getElementById('qualitiesError').innerHTML = 'Please select exactly 4 qualities.';
+        return false; // Stop form submission
+      }
+
+      // Continue with form submission
+      return true;
+    }
+
+  </script>
+</body>
+</html>
